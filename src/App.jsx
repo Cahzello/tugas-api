@@ -1,22 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import './App.css'
-import axios from 'axios';
-import { useState } from 'react';
+import "./App.css";
+import axios from "axios";
+import { useState } from "react";
 
 const fetchData = async () => {
   try {
-    const response = await axios.get('http://www.omdbapi.com/', {
+    const response = await axios.get("http://www.omdbapi.com/", {
       params: {
         apikey: import.meta.env.VITE_API_KEY,
-        i: 'tt0903747'
-      }
+        i: "tt0903747",
+      },
     });
     return response.data;
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 export default function App() {
   const [post, setPost] = useState({});
@@ -25,7 +25,7 @@ export default function App() {
     document.writeln = "Loading";
     const responseData = await fetchData();
     setPost(responseData);
-  }
+  };
 
   return (
     <div>
@@ -68,7 +68,5 @@ export default function App() {
         </tbody>
       </table>
     </div>
-  )
+  );
 }
-
-
